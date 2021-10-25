@@ -9,6 +9,9 @@ before_install:
 script:
   -  docker run -e CI=true deepavaliing/dockertravisreact npm run test -- --coverage
 
+before_deploy:
+  - rvm 1.9.3 do gem install aws-sdk -v 2.1.36
+
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
